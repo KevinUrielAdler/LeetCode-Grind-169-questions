@@ -45,10 +45,10 @@ public:
 
 int main()
 {
-    Solution s;
+    Solution sol;
     vector<int> nums = {2, 7, 11, 15};
     int target = 9;
-    vector<int> ans = s.twoSum(nums, target);
-    cout << ans[0] << " " << ans[1] << endl;
+    vector<int> ans = sol.twoSum(nums, target);
+    cout << ans[0] << " " << ans[1];
     return 0;
 }
