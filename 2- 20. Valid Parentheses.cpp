@@ -7,50 +7,24 @@ class Solution
 public:
     bool isValid(string s)
     {
-        stack<int> pare, brac, sqbr;
+        stack<char> brackets;
         size_t tam = s.size();
-        for (size_t i = 0; i < tam; i++)
+        for (auto i : s)
         {
-            if (s[i] == '(')
-                pare.push(i);
-            else if (s[i] == '{')
-                brac.push(i);
-            else if (s[i] == '[')
-                sqbr.push(i);
-            else if (s[i] == ')')
-            {
-                if (pare.empty())
-                    return false;
-                if (!brac.empty() && brac.top() >= pare.top())
-                    return false;
-                if (!sqbr.empty() && sqbr.top() >= pare.top())
-                    return false;
-                pare.pop();
-            }
-            else if (s[i] == '}')
-            {
-                if (brac.empty())
-                    return false;
-                if (!pare.empty() && pare.top() >= brac.top())
-                    return false;
-                if (!sqbr.empty() && sqbr.top() >= brac.top())
-                    return false;
-                brac.pop();
-            }
+            if (i == '(')
+                brackets.push(')');
+            else if (i == '[')
+                brackets.push(']');
+            else if (i == '{')
+                brackets.push('}');
             else
             {
-                if (sqbr.empty())
+                if (brackets.empty() || brackets.top() != i)
                     return false;
-                if (!brac.empty() && brac.top() >= sqbr.top())
-                    return false;
-                if (!pare.empty() && pare.top() >= sqbr.top())
-                    return false;
-                sqbr.pop();
+                brackets.pop();
             }
         }
-        if (pare.empty() && brac.empty() && sqbr.empty())
-            return true;
-        return false;
+        return brackets.empty();
     }
 };
 
