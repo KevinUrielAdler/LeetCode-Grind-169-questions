@@ -8,7 +8,6 @@ public:
     bool isValid(string s)
     {
         stack<char> brackets;
-        size_t tam = s.size();
         for (auto i : s)
         {
             if (i == '(')
