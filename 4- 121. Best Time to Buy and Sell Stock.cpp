@@ -10,7 +10,7 @@ public:
         int res = 0;
         if (prices.size() == 0)
             return res;
-        int min = 100000;
+        int min = prices[0];
         for (auto i : prices)
         {
             if (i - min > res)
