@@ -35,10 +35,8 @@ public:
 int main()
 {
     Solution sol;
-    string s = "";
+    string s = "A man, a plan, a canal: Panama";
     bool res = sol.isPalindrome(s);
     cout << boolalpha << res;
-    fflush(stdin); // Borrar
-    getchar();     // Borrar
     return 0;
 }
